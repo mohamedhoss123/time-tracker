@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow , ipcMain} = require('electron');
 const path = require("path")
 function createWindow() {
     const win = new BrowserWindow({
@@ -31,3 +31,9 @@ app.on('activate', () => {
         createWindow();
     }
 });
+
+
+
+ipcMain.on("ping",() => {
+    console.log("ping!");
+})
