@@ -1,0 +1,41 @@
+{
+ "name": "time-tracker",
+ "private": true,
+ "version": "0.0.0",
+ "type": "commonjs",
+ "scripts": {
+  "elec:start": "electron ./electron/main.js",
+  "elec:build": "electron-builder build",
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview"
+ },
+ "dependencies": {
+  "react": "^18.2.0",
+  "react-dom": "^18.2.0"
+ },
+ "devDependencies": {
+  "electron-builder": "^23.6.0",
+  "electron": "^22.2.0",
+  "@types/react": "^18.0.27",
+  "@types/react-dom": "^18.0.10",
+  "@vitejs/plugin-react-swc": "^3.0.0",
+  "vite": "^4.1.0"
+ },
+ "main": "./electron/main.js",
+ "build": {
+  "directories": {
+   "output": "releases/${platform}/${arch}"
+  },
+  "win": {
+   "target": [
+    {
+     "target": "nsis",
+     "arch": [
+      "x64"
+     ]
+    }
+   ]
+  }
+ }
+}
