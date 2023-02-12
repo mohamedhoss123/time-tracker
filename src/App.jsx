@@ -1,33 +1,52 @@
-import { useState } from "react";
+import React,{ useState } from "react";
 import reactLogo from "./assets/react.svg";
-import "./App.css";
+import { Button,Container,Modal ,Text, Input } from '@nextui-org/react';
+// import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [visible, setVisible] = useState(false);
+  const handler = () => setVisible(true);
+
+  const closeHandler = () => {
+    setVisible(false);
+    console.log("closed");
+  };
+
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <button onClick={() => window.electronAPI.ping()}>Test</button>
+      <Container>
+        <Button onPress={handler} onClick={() => window.electronAPI.ping()}>Test</Button>
+        <Modal
+          aria-labelledby="modal-title"
+          open={visible}
+          preventClose
+          onClose={closeHandler}
+        >
+        <Modal.Header>
+          <Text id="modal-title" size={18}>
+            Enter your username
+          </Text>
+        </Modal.Header>
+        <Modal.Body>
+          <Input
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="lg"
+            placeholder="username"
+          />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button css={{
+            width: "100%",
+          }} onPress={closeHandler}>
+            Done
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      </Container>
     </div>
   );
 }

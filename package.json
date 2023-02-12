@@ -7,12 +7,13 @@
     "elec:start": "electron ./electron/main.js",
     "elec:build": "electron-builder build",
     "postinstall": "electron-builder install-app-deps",
-    "prod":"pnpm build & pnpm elec:build",
+    "prod": "pnpm build & pnpm elec:build",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@nextui-org/react": "^1.0.0-beta.12",
     "better-sqlite3": "^8.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
