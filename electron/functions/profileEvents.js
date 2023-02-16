@@ -1,10 +1,18 @@
 const { ipcMain } = require("electron");
-const { getProfile } = require("../services/profile.service");
+const { getProfile,createProfile } = require("../services/profile.service");
 
 
 
-ipcMain.on("get-profile",async () => {
+ipcMain.on("getProfile",async () => {
     const profile = await getProfile()
     console.log(profile);
     return profile
+})
+
+
+ipcMain.on("createNewProfile",async (event,data) => {
+    
+    console.log(data);
+    // await createProfile({name:data})
+
 })

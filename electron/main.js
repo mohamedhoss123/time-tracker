@@ -40,3 +40,4 @@ app.on("activate", () => {
 ipcMain.on("ping", () => {
   console.log("ping!");
 });
+require("./functions/profileEvents")

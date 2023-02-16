@@ -1,11 +1,15 @@
 import React,{ useState,uesEffect, useRef } from "react";
 import { Button,Modal ,Text, Input } from '@nextui-org/react';
 
+const UserNameModal = ({ show , onEnter, setSetUsername}) => {
 
-const UserNameModal = ({ show , onEnter }) => {
-
-  // const userNameInput = useRef(null)
-
+  const userNameInput = useRef(null)
+  const handleChange = (event) => {
+    // 👇 Get input value from "event"
+    console.log("ss");
+    setSetUsername(event.target.value);
+  };
+  
   // const userName = userNameInput.current.value
 
 
@@ -36,6 +40,7 @@ const UserNameModal = ({ show , onEnter }) => {
           color="primary"
           size="lg"
           placeholder="username"
+          onChange={handleChange}
         />
       </Modal.Body>
       <Modal.Footer>
@@ -43,7 +48,10 @@ const UserNameModal = ({ show , onEnter }) => {
           css={{
             width: "100%",
           }}
-          onPress={onEnter}
+          onPress={()=>{
+            onEnter()
+          }
+        }
         >
           Done
         </Button>
