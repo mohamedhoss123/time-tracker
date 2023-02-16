@@ -8,7 +8,7 @@
     "elec:build": "electron-builder build",
     "postinstall": "electron-builder install-app-deps",
     "prod": "pnpm build & pnpm elec:build",
-    "dev": "vite",
+    "dev": "concurrently \"vite\" \"electron ./electron/main.js\"",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -23,6 +23,7 @@
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react-swc": "^3.0.0",
+    "concurrently": "^7.6.0",
     "electron": "^22.2.0",
     "electron-builder": "^23.6.0",
     "prebuild-install": "^7.1.1",
