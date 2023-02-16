@@ -4,9 +4,9 @@ import { Button,Modal ,Text, Input } from '@nextui-org/react';
 
 const UserNameModal = ({ show , onEnter }) => {
 
-  const userNameInput = useRef(null)
+  // const userNameInput = useRef(null)
 
-  const userName = userNameInput.current.value
+  // const userName = userNameInput.current.value
 
 
 
@@ -29,7 +29,7 @@ const UserNameModal = ({ show , onEnter }) => {
       </Modal.Header>
       <Modal.Body>
         <Input
-          ref={userNameInput}
+          // ref={userNameInput}
           clearable
           bordered
           fullWidth
