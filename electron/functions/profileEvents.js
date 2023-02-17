@@ -3,7 +3,7 @@ const { getProfile,createProfile } = require("../services/profile.service");
 
 
 
-ipcMain.on("getProfile",async () => {
+ipcMain.on("getUserName",async () => {
     const profile = await getProfile()
     console.log(profile);
     return profile
@@ -11,8 +11,8 @@ ipcMain.on("getProfile",async () => {
 
 
 ipcMain.on("createNewProfile",async (event,data) => {
-    
-    console.log(data);
+    const profile = await createProfile(data)
+    console.log(profile);
     // await createProfile({name:data})
 
 })

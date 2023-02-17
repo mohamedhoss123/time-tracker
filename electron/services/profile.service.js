@@ -4,16 +4,20 @@ const profile = require("../db/entitys/profile");
 const profileRepo =  datasource.getRepository(profile)
 
 async function getProfile(){
-    const profile = await profileRepo.find()[0]
+    const profile = await profileRepo.findOne({where:{id:1}})
     return profile
 }
 
 
 async function createProfile(profile){
     if(await getProfile()){
-        throw Error("cannot craete new Profile there is already one");
+        return 
     }
-    await profileRepo.save(profile)
+    const profileTosave = {
+        name:profile,
+        total:0
+    }
+    await profileRepo.save(profileTosave)
 }
 
 
